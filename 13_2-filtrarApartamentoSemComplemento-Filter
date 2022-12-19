@@ -1,0 +1,17 @@
+const clientes = require ("./13-clientes.json")
+
+//Agora vamos supor aqui que alguém fez lambança, cadastraram apartamentos
+//sem complemento. Vamos encontrar esses registros com o filter.
+
+function filtrarApartamentosSemComplemento(clientes){
+    //Mais uma vez o filter (que só opera com arrays que vai nos ajudar)
+    return clientes.filter((cliente) => {//retorne um filtro passando por todos os campos de "cliente"
+        return (
+            cliente.endereco.apartamento === true &&//=== true poderia ser omitido
+            !cliente.endereco.hasOwnProperty(`complemento`)//hasOwnProperty -> ! não Tem propriedade complemento?
+            )
+    })
+}
+
+const filtrados = filtrarApartamentosSemComplemento(clientes)
+console.log(filtrados)
